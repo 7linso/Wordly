@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px;
+}
+
+.letter {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid hsla(0, 0%, 0%, 0.475);
+    border-radius: 10px;
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.777);
+    color: black;
+    transition: 0.5s;
+}
+
+.letter:hover{
+    box-shadow: 3px 3px 8px rgba(239, 239, 239, 0.3);
+    background-color:white;
+}
