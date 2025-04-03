@@ -1,17 +1,15 @@
 
-import Form from './components/Form'
-import Grid from './components/Grid'
+import GuessForm from './components/GuessForm'
 import './css/App.css'
 
-import { useState } from 'react'
 
 function App() {
-  const [typedWord, setTypedWord] = useState('')
+  const wordToGuess = 'react'
 
   return (
     <>
-      <Form typedWord={typedWord} setTypedWord={setTypedWord}/>
-      <Grid/>
+      <GuessForm wordToGuess={wordToGuess}/>
+
     </>
   )
 }

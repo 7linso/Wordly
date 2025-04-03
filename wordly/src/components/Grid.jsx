@@ -1,10 +1,9 @@
 import '../css/Grid.css'
 import Row from './Row'
 
-export default function Grid(){
-    const arrayOfTries= Array(5).fill("_____")
-
+export default function Grid({ arrayOfTries }){
+    
     return <>
-        {arrayOfTries.map(word => <Row word={word}/>)}
+        {arrayOfTries.map((word, id) => <Row word={word} key={id}/>)}
     </>
 }
