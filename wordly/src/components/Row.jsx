@@ -1,8 +1,8 @@
-export default function Row({word}) {
+export default function Row({ wordObj }) {
     return <>
         <div className="row">
-            {word.split('').map((l, index) => (
-                <div key={index} className="letter">
+            {wordObj.word.split('').map((l, index) => (
+                <div key={index} className={`letter ${wordObj.letterStatus[index]}`}>
                     <p>{l}</p>
                 </div>
             ))}

@@ -25,3 +25,13 @@
     box-shadow: 3px 3px 8px rgba(239, 239, 239, 0.3);
     background-color:white;
 }
+
+.letter.correct{
+    background-color: aquamarine;
+}
+.letter.present {
+    background-color: rgb(187, 255, 127);
+}
+.letter.incorrect{
+    background-color: rgb(255, 155, 127);
+}
