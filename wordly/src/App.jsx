@@ -3,10 +3,14 @@ import Form from './components/Form'
 import Grid from './components/Grid'
 import './css/App.css'
 
+import { useState } from 'react'
+
 function App() {
+  const [typedWord, setTypedWord] = useState('')
+
   return (
     <>
-      <Form/>
+      <Form typedWord={typedWord} setTypedWord={setTypedWord}/>
       <Grid/>
     </>
   )
