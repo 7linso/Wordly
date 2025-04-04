@@ -3,16 +3,13 @@ import Grid from './Grid'
 
 import { useState } from 'react'
 
-export default function GuessForm({ wordToGuess }) {
-    const wordLength = 5
-    const numOfTries = 5
+export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setArrayOfTries }) {
 
     const [typedWord, setTypedWord] = useState('')
     const [tries, setTries] = useState(0)
 
-    const [arrayOfTries, setArrayOfTries] = useState(Array(numOfTries).fill({ word: "_____", letterStatus: Array(wordLength).fill('default') }))
 
-    const checkLettersStatus = () => {
+    const checkLetterStatus = () => {
         let checkWord = wordToGuess.split('')
         let letterStatus = []
 
@@ -32,18 +29,13 @@ export default function GuessForm({ wordToGuess }) {
 
     const handleGuess = (e) => {
         e.preventDefault()
-        if (typedWord === wordToGuess) {
-            console.log('congrats')
-            setTries(0)
-        } else {
-            setTries(prevTries => prevTries + 1)
-        }
+        setTries(prevTries => prevTries + 1)
 
-        const newArrayOfTries = [...arrayOfTries]; 
+        const newArrayOfTries = [...arrayOfTries];
 
         newArrayOfTries[tries] = {
             word: typedWord,
-            letterStatus: checkLettersStatus()
+            letterStatus: checkLetterStatus()
         };
         setArrayOfTries(newArrayOfTries);
         console.log(newArrayOfTries)
@@ -51,10 +43,10 @@ export default function GuessForm({ wordToGuess }) {
         setArrayOfTries(newArrayOfTries)
         setTypedWord('')
     }
-    
+
     return <>
-        <form action="" onSubmit = { handleGuess } className="input-form">
-            <input type="text" className="input" placeholder='min 5'
+        <form action="" onSubmit={handleGuess} className="input-form">
+            <input type="text" className="input" placeholder={`${wordLength} letters....`}
                 value={typedWord} onChange={(e) => setTypedWord(e.target.value)} />
 
             <button type='submit' className="input-btn" disabled={typedWord.length !== wordLength}>Try</button>
