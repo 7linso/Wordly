@@ -11,22 +11,28 @@ function App() {
 
   const wordToGuess = 'react'
 
+  const [isCorrect, setIsCorrect] = useState(false)
   const [wordLength, setWordLength] = useState(5)
   const [numOfTries, setNumOfTries] = useState(5)
-  const [arrayOfTries, setArrayOfTries] = useState([]);
+  const [arrayOfTries, setArrayOfTries] = useState([])
 
   useEffect(() => {
-    const emptyTries = Array(numOfTries).fill({ word: '_'.repeat(wordLength), letterStatus: [] });
-    setArrayOfTries(emptyTries);
-  }, [wordLength, numOfTries]); 
+    const emptyTries = Array.from({ length: numOfTries }, () => ({
+      word: '_'.repeat(wordLength),
+      letterStatus: []
+    }));
+    setArrayOfTries(emptyTries)
+  }, []);
 
   return (
     <>
       <SetupForm wordLength={wordLength} setWordLength={setWordLength}
-        numOfTries={numOfTries} setNumOfTries={setNumOfTries}/>
+        numOfTries={numOfTries} setNumOfTries={setNumOfTries}
+        setIsCorrect={setIsCorrect} setArrayOfTries={setArrayOfTries}/>
       <hr />
       <GuessForm wordToGuess={wordToGuess} wordLength={wordLength} 
-        arrayOfTries={arrayOfTries} setArrayOfTries={setArrayOfTries}/>
+        arrayOfTries={arrayOfTries} setArrayOfTries={setArrayOfTries}
+        isCorrect={isCorrect} setIsCorrect={setIsCorrect}/>
       <Grid arrayOfTries={arrayOfTries} />
     </>
     

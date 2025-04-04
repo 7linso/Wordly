@@ -2,13 +2,12 @@ import '../css/Form.css'
 
 import { useState } from 'react'
 
-export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setArrayOfTries }) {
+export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setArrayOfTries, isCorrect, setIsCorrect }) {
 
     const [typedWord, setTypedWord] = useState('')
     const [tries, setTries] = useState(0)
 
-
-    const checkLetterStatus = () => {
+    const updateLetterStatus = () => {
         const checkWord = wordToGuess.split('')
         const letterStatus = Array(wordToGuess.length).fill('incorrect')
         const usedIndexes = new Set()
@@ -44,19 +43,25 @@ export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setAr
 
         newArrayOfTries[tries] = {
             word: typedWord,
-            letterStatus: checkLetterStatus()
+            letterStatus: updateLetterStatus()
         };
         setArrayOfTries(newArrayOfTries);
         console.log(newArrayOfTries)
 
         setArrayOfTries(newArrayOfTries)
         setTypedWord('')
+
+        if (typedWord === wordToGuess) {
+            setIsCorrect(true)
+        }
     }
 
     return <>
+        {isCorrect === true && (<><h1>You Won!</h1><hr /></>)}
+        
         <form action="" onSubmit={handleGuess} className="input-form">
             <input type="text" className="input" placeholder={`${wordLength} letters....`}
-                value={typedWord} onChange={(e) => setTypedWord(e.target.value)} />
+                value={typedWord} onChange={(e) => setTypedWord(e.target.value)} disabled={isCorrect}/>
 
             <button type='submit' className="input-btn" disabled={typedWord.length !== wordLength}>Try</button>
         </form>
