@@ -1,20 +1,18 @@
 
 import GuessForm from './components/GuessForm'
 import SetupForm from './components/SetupForm'
+import Grid from './components/Grid'
+
 import './css/App.css'
 
 import { useState, useEffect } from "react"
 
 function App() {
-  const [isGameStarted, setIsGameStarted] = useState(false);
 
   const wordToGuess = 'react'
 
   const [wordLength, setWordLength] = useState(5)
   const [numOfTries, setNumOfTries] = useState(5)
-
-  // const [arrayOfTries, setArrayOfTries] = useState(Array(numOfTries).fill({ word: "_____", letterStatus: Array(wordLength).fill('default') }))
-
   const [arrayOfTries, setArrayOfTries] = useState([]);
 
   useEffect(() => {
@@ -25,12 +23,11 @@ function App() {
   return (
     <>
       <SetupForm wordLength={wordLength} setWordLength={setWordLength}
-        numOfTries={numOfTries} setNumOfTries={setNumOfTries}
-        setIsGameStarted={setIsGameStarted}/>
+        numOfTries={numOfTries} setNumOfTries={setNumOfTries}/>
       <hr />
       <GuessForm wordToGuess={wordToGuess} wordLength={wordLength} 
         arrayOfTries={arrayOfTries} setArrayOfTries={setArrayOfTries}/>
-        
+      <Grid arrayOfTries={arrayOfTries} />
     </>
     
   )

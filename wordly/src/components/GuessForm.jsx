@@ -1,5 +1,4 @@
 import '../css/Form.css'
-import Grid from './Grid'
 
 import { useState } from 'react'
 
@@ -10,22 +9,32 @@ export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setAr
 
 
     const checkLetterStatus = () => {
-        let checkWord = wordToGuess.split('')
-        let letterStatus = []
+        const checkWord = wordToGuess.split('')
+        const letterStatus = Array(wordToGuess.length).fill('incorrect')
+        const usedIndexes = new Set()
 
         typedWord.split('').forEach((letter, index) => {
             if (checkWord[index] === letter) {
                 letterStatus[index] = 'correct'
-                checkWord[index] = '.'
-            } else if (checkWord.includes(letter)) {
-                letterStatus[index] = 'present'
-                checkWord[index] = '.'
-            } else {
-                letterStatus[index] = 'incorrect'
+                checkWord[index] = null
+                usedIndexes.add(index)
             }
-        })
+        });
+
+        typedWord.split('').forEach((letter, index) => {
+            if (letterStatus[index] === 'correct') return;
+
+            const foundIndex = checkWord.findIndex((l, i) => l === letter && !usedIndexes.has(i))
+            if (foundIndex !== -1) {
+                letterStatus[index] = 'present'
+                checkWord[foundIndex] = null
+                usedIndexes.add(foundIndex)
+            }
+        });
+
         return letterStatus
-    }
+    };
+
 
     const handleGuess = (e) => {
         e.preventDefault()
@@ -51,7 +60,5 @@ export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setAr
 
             <button type='submit' className="input-btn" disabled={typedWord.length !== wordLength}>Try</button>
         </form>
-
-        <Grid arrayOfTries={arrayOfTries} />
     </>
 }

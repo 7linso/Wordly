@@ -66,3 +66,14 @@
 .input-btn:not(:disabled) {
     transition: all 0.3s ease-in-out;
 }
+
+.input-label{
+    padding: 10px;
+    margin: 10PX;
+    font-size: 20px;
+}
+
+.input.set{
+    width: 30px;
+    margin-bottom: 1em;
+}
