@@ -18,7 +18,7 @@
 }
 
 .input:focus {
-    border-color: #535bf2;
+    border-color: #0000FF;
     box-shadow: 0 0 6px rgba(83, 91, 242, 0.4);
 }
 
@@ -28,7 +28,7 @@
     padding: 10px 35px;
     font-size: 20px;
     font-weight: 500;
-    background-color: #535bf2;
+    background-color: #0000FF;
     color: white;
     cursor: pointer;
     transition: 0.3s ease;
@@ -37,7 +37,7 @@
 }
 
 .input-btn:hover {
-    background-color: #4f56d3;
+    background-color: #1818d3;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }
