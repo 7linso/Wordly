@@ -15,6 +15,7 @@ function App() {
   const [wordLength, setWordLength] = useState(5)
   const [numOfTries, setNumOfTries] = useState(5)
   const [arrayOfTries, setArrayOfTries] = useState([])
+  const [tries, setTries] = useState(0)
 
   async function fetchWord(wordLength) {
     try {
@@ -44,11 +45,13 @@ function App() {
     <h1 className='logo'>Wordle</h1>
       <SetupForm wordLength={wordLength} setWordLength={setWordLength}
         numOfTries={numOfTries} setNumOfTries={setNumOfTries}
-        setIsCorrect={setIsCorrect} setArrayOfTries={setArrayOfTries} fetchWord={fetchWord}/>
+        setIsCorrect={setIsCorrect} setArrayOfTries={setArrayOfTries} 
+        fetchWord={fetchWord} setTries={setTries}/>
       <hr />
       <GuessForm wordToGuess={wordToGuess} wordLength={wordLength}
         arrayOfTries={arrayOfTries} setArrayOfTries={setArrayOfTries}
-        isCorrect={isCorrect} setIsCorrect={setIsCorrect} />
+        isCorrect={isCorrect} setIsCorrect={setIsCorrect}
+        tries={tries} setTries={setTries} />
       <Grid arrayOfTries={arrayOfTries} />
     </>
 
