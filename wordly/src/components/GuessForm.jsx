@@ -64,7 +64,13 @@ export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setAr
 
         <form action="" onSubmit={handleGuess} className="input-form">
             <input type="text" className="input" placeholder={`${wordLength} letters....`}
-                value={typedWord} onChange={(e) => setTypedWord(e.target.value)}
+                value={typedWord} onChange={(e) => {
+                    const input = e.target.value
+                    if (/^[a-zA-Z]*$/.test(input)) {
+                        setTypedWord(input)
+                    }
+                }}
+
                 disabled={isCorrect || arrayOfTries.length > 0 && arrayOfTries[arrayOfTries.length - 1].word !== '_'.repeat(wordLength)}
             />
 
