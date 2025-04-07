@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function SetupForm({ wordLength, setWordLength, numOfTries, setNumOfTries, setIsCorrect, setArrayOfTries }) {
+export default function SetupForm({ wordLength, setWordLength, numOfTries, setNumOfTries, setIsCorrect, setArrayOfTries, fetchWord }) {
     const [tempWordLength, setTempWordLength] = useState(wordLength);
     const [tempNumOfTries, setTempNumOfTries] = useState(numOfTries);
 
@@ -15,6 +15,7 @@ export default function SetupForm({ wordLength, setWordLength, numOfTries, setNu
         }))
 
         setArrayOfTries(resetTries)
+        fetchWord(tempWordLength)
     };
 
     return (
@@ -32,5 +33,6 @@ export default function SetupForm({ wordLength, setWordLength, numOfTries, setNu
 
             <button className="input-btn" type="submit">Reset</button>
         </form>
+        
     );
 }

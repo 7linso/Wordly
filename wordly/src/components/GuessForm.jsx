@@ -57,13 +57,28 @@ export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setAr
     }
 
     return <>
-        {isCorrect === true && (<><h1>You Won!</h1><hr /></>)}
-        
-        <form action="" onSubmit={handleGuess} className="input-form">
-            <input type="text" className="input" placeholder={`${wordLength} letters....`}
-                value={typedWord} onChange={(e) => setTypedWord(e.target.value)} disabled={isCorrect}/>
+        {isCorrect && (<><h1>You Won!</h1><hr /></>)}
+        {arrayOfTries.length > 0 && arrayOfTries[arrayOfTries.length - 1].word !== wordToGuess && arrayOfTries[arrayOfTries.length - 1].word !== '_'.repeat(wordLength) && (
+            <><h1>You Lost!</h1><hr /></>
+        )}
 
-            <button type='submit' className="input-btn" disabled={typedWord.length !== wordLength}>Try</button>
+        <form action="" onSubmit={handleGuess} className="input-form">
+            <input
+                type="text"
+                className="input"
+                placeholder={`${wordLength} letters....`}
+                value={typedWord}
+                onChange={(e) => setTypedWord(e.target.value)}
+                disabled={isCorrect || arrayOfTries.length > 0 && arrayOfTries[arrayOfTries.length - 1].word !== '_'.repeat(wordLength)}
+            />
+
+            <button
+                type='submit'
+                className="input-btn"
+                disabled={typedWord.length !== wordLength || isCorrect || arrayOfTries.length > 0 && arrayOfTries[arrayOfTries.length - 1].word !== '_'.repeat(wordLength)}
+            >
+                Try
+            </button>
         </form>
     </>
 }
