@@ -13,8 +13,9 @@
 }
 
 .input:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(185, 185, 185, 0.3);
     transform: translateY(-2px);
+    border-color: #0000FF;
 }
 
 .input:focus {
@@ -26,9 +27,9 @@
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 10px 35px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
-    background-color: #0000FF;
+    background-color: #0000e2;
     color: white;
     cursor: pointer;
     transition: 0.3s ease;
@@ -70,10 +71,10 @@
 .input-label{
     padding: 10px;
     margin: 10PX;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .input.set{
-    width: 30px;
+    width: 25px;
     margin-bottom: 1em;
 }

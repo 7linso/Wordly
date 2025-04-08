@@ -2,13 +2,13 @@
 import GuessForm from './components/GuessForm'
 import SetupForm from './components/SetupForm'
 import Grid from './components/Grid'
+import OverlayCard from './components/OverlayCard'
 
 import './css/App.css'
 
 import { useState, useEffect } from "react"
 
 function App() {
-
   const [wordToGuess, setWordToGuess] = useState('react')
 
   const [isCorrect, setIsCorrect] = useState(false)
@@ -42,11 +42,12 @@ function App() {
 
   return (
     <>
-    <h1 className='logo'>Wordle</h1>
+      <OverlayCard />
+      <h1 className='logo'>Wordle</h1>
       <SetupForm wordLength={wordLength} setWordLength={setWordLength}
         numOfTries={numOfTries} setNumOfTries={setNumOfTries}
-        setIsCorrect={setIsCorrect} setArrayOfTries={setArrayOfTries} 
-        fetchWord={fetchWord} setTries={setTries}/>
+        setIsCorrect={setIsCorrect} setArrayOfTries={setArrayOfTries}
+        fetchWord={fetchWord} setTries={setTries} />
       <hr />
       <GuessForm wordToGuess={wordToGuess} wordLength={wordLength}
         arrayOfTries={arrayOfTries} setArrayOfTries={setArrayOfTries}
