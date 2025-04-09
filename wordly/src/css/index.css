@@ -41,10 +41,10 @@
 
   --btn-bg: #0077b6;
   --btn-text: #ffffff;
-  --btn-hover-bg: #005f8a;
+  --btn-hover-bg: #007eb8;
   --btn-active-bg: #4349b8;
-  --btn-disabled-bg: #555555;
-  --btn-disabled-text: #888888;
+  --btn-disabled-bg: #0079bb;
+  --btn-disabled-text: #e3e3e3;
   --btn-focus-border: #ffffff;
   --btn-focus-shadow: rgba(255, 255, 255, 0.6);
 }

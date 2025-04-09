@@ -11,8 +11,6 @@ import './css/App.css'
 import { useState, useEffect } from "react"
 
 function App() {
-  const [theme, setTheme] = useState('light')
-
   const [wordToGuess, setWordToGuess] = useState('react')
 
   const [isCorrect, setIsCorrect] = useState(false)
@@ -33,14 +31,6 @@ function App() {
       setWordToGuess('react');
     }
   }
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
-  };
 
   useEffect(() => {
     fetchWord(wordLength);
@@ -67,10 +57,6 @@ function App() {
         isCorrect={isCorrect} setIsCorrect={setIsCorrect}
         tries={tries} setTries={setTries} />
       <Grid arrayOfTries={arrayOfTries} />
-
-      <button onClick={toggleTheme}>
-        Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
-      </button>
     </>
 
   )
