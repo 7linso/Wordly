@@ -1,3 +1,4 @@
+
 .input-form {
     margin-bottom: 2em;
 }
@@ -5,22 +6,24 @@
 .input {
     flex: 1;
     padding: 10px 15px;
-    border: 2px solid #ccc;
+    border: 2px solid var(--input-border);
     border-radius: 6px;
     font-size: 20px;
     transition: 0.3s ease;
     outline: none;
+    background-color: var(--input-bg);
+    color: var(--text-color);
 }
 
 .input:hover {
-    box-shadow: 0 4px 10px rgba(185, 185, 185, 0.3);
+    box-shadow: 0 4px 10px var(--input-shadow);
     transform: translateY(-2px);
-    border-color: #0000FF;
+    border-color: var(--input-hover-border);
 }
 
 .input:focus {
-    border-color: #0000FF;
-    box-shadow: 0 0 6px rgba(83, 91, 242, 0.4);
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 6px var(--input-shadow);
 }
 
 .input-btn {
@@ -29,8 +32,8 @@
     padding: 10px 35px;
     font-size: 30px;
     font-weight: 500;
-    background-color: #0000e2;
-    color: white;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
     cursor: pointer;
     transition: 0.3s ease;
     margin: 20px;
@@ -38,26 +41,27 @@
 }
 
 .input-btn:hover {
-    background-color: #1818d3;
+    border-color: var(--input-focus-border);
+    background-color: var(--btn-hover-bg);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }
 
 .input-btn:active {
-    background-color: #4349b8;
+    background-color: var(--btn-active-bg);
     transform: translateY(0);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: 0.5s ease-out;
 }
 
 .input-btn:focus {
-    border-color: #ffffff;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    border-color: var(--btn-focus-border);
+    box-shadow: 0 0 8px var(--btn-focus-shadow);
 }
 
 .input-btn:disabled {
-    background-color: #464ba9;
-    color: #777;
+    background-color: var(--btn-disabled-bg);
+    color: var(--btn-disabled-text);
     cursor: not-allowed;
     opacity: 0.6;
     box-shadow: none;
@@ -68,13 +72,13 @@
     transition: all 0.3s ease-in-out;
 }
 
-.input-label{
+.input-label {
     padding: 10px;
-    margin: 10PX;
+    margin: 10px;
     font-size: 30px;
 }
 
-.input.set{
+.input.set {
     width: 25px;
     margin-bottom: 1em;
 }

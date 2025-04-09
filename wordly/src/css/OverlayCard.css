@@ -12,7 +12,7 @@
 .overlay-content {
     position: relative;
     background-color: rgb(30, 33, 52);
-    padding: 2rem;
+    padding: 3em;
     border-radius: 12px;
     border-color: #000 solid 3px ;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -28,7 +28,7 @@
     right: 15px;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 3em;
     color: #666;
     cursor: pointer;
 }

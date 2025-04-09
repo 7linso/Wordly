@@ -1,16 +1,52 @@
 :root {
-  font-family: "Lilita One", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Doto, system-ui, Helvetica, Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "ROND" 100;
+  font-weight: 500;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #1e2d6f7d;
+  --text-color: #03045e;
+  --bg-color: #caf0f8;
+  --input-bg: #ffffff;
+  --input-border: #03045e;
+  --input-hover-border: #023e8a;
+  --input-focus-border: #0000ff;
+  --input-shadow: #364f71;
+  --btn-bg: #0077b6;
+  --btn-text: #ffffff;
+  --btn-hover-bg: #0079bb;
+  --btn-active-bg: #4349b8;
+  --btn-disabled-bg: #0079bb;
+  --btn-disabled-text: #e3e3e3;
+  --btn-focus-border: #ffffff;
+  --btn-focus-shadow: rgba(255, 255, 255, 0.6);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme='dark'] {
+  --text-color: #e0e0e0;
+  --bg-color: #121212;
+
+  --input-bg: #333333;
+  --input-border: #4f4f4f;
+  --input-hover-border: #76b3e6;
+  --input-focus-border: #4a90e2;
+  --input-shadow: #4b4b4b;
+
+  --btn-bg: #0077b6;
+  --btn-text: #ffffff;
+  --btn-hover-bg: #005f8a;
+  --btn-active-bg: #4349b8;
+  --btn-disabled-bg: #555555;
+  --btn-disabled-text: #888888;
+  --btn-focus-border: #ffffff;
+  --btn-focus-shadow: rgba(255, 255, 255, 0.6);
 }
 
 body {
@@ -19,10 +55,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s
 }
 
 h1 {
-  font-size: 3.2em;
   line-height: 1.1;
 }
 
@@ -37,7 +76,3 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-
-
-
-

@@ -68,7 +68,7 @@ export default function GuessForm({ wordToGuess, wordLength, arrayOfTries, setAr
                     const input = e.target.value
                     if (/^[a-zA-Z]*$/.test(input)) {
                         setTypedWord(input)
-                    }
+                    } else alert('Use only valid characters')
                 }}
 
                 disabled={isCorrect || arrayOfTries.length > 0 && arrayOfTries[arrayOfTries.length - 1].word !== '_'.repeat(wordLength)}

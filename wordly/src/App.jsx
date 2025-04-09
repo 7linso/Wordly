@@ -3,12 +3,16 @@ import GuessForm from './components/GuessForm'
 import SetupForm from './components/SetupForm'
 import Grid from './components/Grid'
 import OverlayCard from './components/OverlayCard'
+import Navbar from './components/Navbar'
+
 
 import './css/App.css'
 
 import { useState, useEffect } from "react"
 
 function App() {
+  const [theme, setTheme] = useState('light')
+
   const [wordToGuess, setWordToGuess] = useState('react')
 
   const [isCorrect, setIsCorrect] = useState(false)
@@ -31,6 +35,14 @@ function App() {
   }
 
   useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
+
+  useEffect(() => {
     fetchWord(wordLength);
 
     const emptyTries = Array.from({ length: numOfTries }, () => ({
@@ -42,6 +54,7 @@ function App() {
 
   return (
     <>
+      <Navbar/>
       <OverlayCard />
       <h1 className='logo'>Wordle</h1>
       <SetupForm wordLength={wordLength} setWordLength={setWordLength}
@@ -54,6 +67,10 @@ function App() {
         isCorrect={isCorrect} setIsCorrect={setIsCorrect}
         tries={tries} setTries={setTries} />
       <Grid arrayOfTries={arrayOfTries} />
+
+      <button onClick={toggleTheme}>
+        Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
+      </button>
     </>
 
   )
